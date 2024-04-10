@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="icon" type="image/x-icon" href="../img/N logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- hasrhkumar patadiya  -->
+
+    <style>
+        .container {
+            width: 1200px;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 8px;
+            font-size: 20px;
+            border: double 2px;
+            border-radius: 10px;
+        }
+
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: transparent;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+        }
+
+        .signin button {
+            background-color: red;
+            border-radius: 10px;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .header {
+            display: flex;
+            margin-top: 50px;
+            justify-content: right;
+        }
+
+        .dropdown {
+            margin: 0 10px 0 0;
+        }
+
+        .main-one h1 {
+            width: 100%;
+            font-size: 45px;
+            margin: 0 auto;
+            margin-top: 85px;
+            text-align: center;
+            color: white;
+            font-weight: 900;
+        }
+
+        .main-one h6 {
+            margin-top: 35px;
+            text-align: center;
+            color: white;
+            font-size: 25px;
+        }
+
+        .main-one p {
+            margin-top: 40px;
+            text-align: center;
+            color: white;
+            font-size: 22px;
+        }
+
+        .email {
+
+            text-align: center;
+        }
+
+        .em {
+            padding: 15px 100px;
+            border-radius: 5px;
+            color: white;
+            border-color: aquamarine;
+            background-color: rgba(0, 0, 255, 0.061);
+        }
+
+
+        .get-s {
+            margin-bottom: 100px;
+            font-size: 20px;
+            padding: 13px 40px;
+            border-radius: 5px;
+            background-color: red;
+            color: white;
+            font-weight: 700;
+        }
+
+
+
+        .sec-1 {
+            background-image: url('../img/IN-en-20240326-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+            background-color: rgba(0, 0, 0, 0.59);
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: rgba(0, 0, 0, 0.269);
+        }
+
+        .sec-2 {
+            background-color: black;
+            margin: 8px 0;
+        }
+
+        .col-6 {
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            flex-direction: column;
+        }
+
+        .main-2 {
+            padding: 50px 0;
+        }
+
+        .main-2 h2 {
+            color: white;
+            font-weight: 900;
+            font-size: 45px;
+            margin-bottom: 25px;
+        }
+
+        .main-2 p {
+            font-size: 25px;
+            color: white;
+        }
+
+        .ig {
+            z-index: 1;
+
+        }
+
+        .gi {
+            z-index: 2;
+            width: 100%;
+        }
+
+        .vid {
+            position: absolute;
+            /* width: 100%; */
+            right: 200px;
+            overflow: hidden;
+        }
+
+        .sec-3 {
+            background-color: black;
+            margin: 8px 0;
+        }
+
+        .main-3 {
+            padding: 50px 0;
+        }
+
+        .main-3 h2 {
+            color: white;
+            font-weight: 900;
+            font-size: 45px;
+            margin-bottom: 25px;
+        }
+
+        .main-3 p {
+            font-size: 25px;
+            color: white;
+        }
+
+        .default-ltr-cache-1t1z3a4 {
+            height: 90px;
+        }
+
+        .default-ltr-cache-44ib4m {
+            font-size: 0.875rem;
+        }
+
+        .default-ltr-cache-44ib4m {
+            font-size: 15px;
+            font-weight: 400;
+            color: #0071eb;
+        }
+
+        .default-ltr-cache-162uqtg {
+            font-size: 1rem;
+        }
+
+        .default-ltr-cache-162uqtg {
+            color: rgb(255, 255, 255);
+            font-weight: 500;
+            font-size: 20px;
+        }
+
+        .default-ltr-cache-1cn8kex {
+            margin: 0 1rem 0 0;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+
+        .default-ltr-cache-xfttou {
+            width: 50%;
+        }
+
+        .default-ltr-cache-xfttou {
+            overflow: hidden;
+            position: relative;
+            left: 30%;
+            bottom: 15%;
+            transform: translateX(-50%);
+            margin: 0 auto;
+            background: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            width: 60%;
+            min-width: 15rem;
+            padding: 2px 0.65rem;
+            border: 2px solid rgba(128, 128, 128, 0.7);
+            box-shadow: 0 0 2em 0 rgb(0, 0, 0);
+            border-radius: 0.75rem;
+            z-index: 1;
+        }
+
+        .default-ltr-cache-tcf860 {
+            text-align: left;
+            -webkit-box-flex: 1;
+            -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            -webkit-flex-shrink: 1;
+            -ms-flex-negative: 1;
+            flex-shrink: 1;
+            margin: 0.3rem
+        }
+
+        .default-ltr-cache-1q4up1i {
+            width: 60px;
+            height: 100px;
+            background: url(https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif) center center no-repeat;
+            -webkit-background-size: 100%;
+            background-size: 60px;
+            content: '';
+
+        }
+
+
+
+        .sec-4 {
+            position: relative;
+            background-color: black;
+            margin: 8px 0;
+        }
+
+        .main-4 {
+            padding: 50px 0;
+        }
+
+        .main-4 h2 {
+            color: white;
+            font-weight: 900;
+            font-size: 45px;
+            margin-bottom: 25px;
+        }
+
+        .main-4 p {
+            font-size: 25px;
+            color: white;
+        }
+
+        .dk {
+            width: 36%;
+        }
+
+        .vid-4 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* bottom: 430px; */
+            max-width: 63%;
+            max-height: 47%;
+            top: 90px;
+            right: -320px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .sec-5 {
+            position: relative;
+            background-color: black;
+            margin: 8px 0;
+        }
+
+        .main-5 {
+            padding: 50px 0;
+        }
+
+        .main-5 h2 {
+            color: white;
+            font-weight: 900;
+            font-size: 45px;
+            margin-bottom: 25px;
+        }
+
+        .main-5 p {
+            font-size: 25px;
+            color: white;
+        }
+
+        .sec-6 {
+            background-color: black;
+            /* height: 600px; */
+        }
+
+        /* Icon styles */
+        #icon {
+            /* width: 100px; */
+            /* height: 100px; */
+            /* background-color: #007bff; */
+            /* blue */
+            /* border-radius: 50%; */
+            cursor: pointer;
+        }
+
+        /* Animation styles */
+        /* .animate {
+            transition: transform 0.5s ease-in-out;
+        } */
+
+        /* .animate.rotate {
+            transform: rotate(180deg);
+        } */
+
+
+        /* .flip {
+            transition: transform 0.5s ease;
+            transform: scaleX(-1);
+        } */
+
+        .rotate {
+            animation: halfRotate 0.3s ease forwards;
+        }
+
+        @keyframes halfRotate {
+            50% {
+                transform: rotate(90deg);
+            }
+
+            100% {
+                transform: rotate(180deg);
+            }
+        }
+
+        .bgr {
+            background-color: rgb(40, 40, 40);
+            overflow-x: hidden;
+        }
+
+        .toggle {
+            background-color: rgb(45 45 45);
+            width: 100%;
+            text-align: left;
+            margin-top: 20px;
+            font-size: 25px;
+            padding: 25px 20px;
+            color: white;
+        }
+
+        .tg {
+            background-color: rgb(45 45 45);
+            color: white;
+            margin-top: 3px;
+            font-size: 25px;
+            padding: 20px 20px;
+        }
+
+        .toggle-2 {
+            background-color: rgb(45 45 45);
+            width: 100%;
+            text-align: left;
+            margin-top: 10px;
+            font-size: 25px;
+            padding: 25px 20px;
+            color: white;
+        }
+
+        .tg-2 {
+            background-color: rgb(45 45 45);
+            color: white;
+            margin-top: 5px;
+            font-size: 25px;
+            padding: 5px 10px;
+        }
+
+        .toggle-3 {
+            background-color: rgb(45 45 45);
+            width: 100%;
+            text-align: left;
+            margin-top: 10px;
+            font-size: 25px;
+            padding: 25px 20px;
+            color: white;
+        }
+
+        .tg-3 {
+            background-color: rgb(45 45 45);
+            color: white;
+            margin-top: 5px;
+            font-size: 25px;
+            padding: 5px 10px;
+        }
+
+        .toggle-4 {
+            background-color: rgb(45 45 45);
+            width: 100%;
+            text-align: left;
+            margin-top: 10px;
+            font-size: 25px;
+            padding: 25px 20px;
+            color: white;
+        }
+
+        .tg-4 {
+            background-color: rgb(45 45 45);
+            color: white;
+            margin-top: 5px;
+            font-size: 25px;
+            padding: 5px 10px;
+        }
+
+        .toggle-5 {
+            background-color: rgb(45 45 45);
+            width: 100%;
+            text-align: left;
+            margin-top: 10px;
+            font-size: 25px;
+            padding: 25px 20px;
+            color: white;
+        }
+
+        .tg-5 {
+            background-color: rgb(45 45 45);
+            color: white;
+            margin-top: 5px;
+            font-size: 25px;
+            padding: 5px 10px;
+        }
+
+        .toggle-6 {
+            background-color: rgb(45 45 45);
+            width: 100%;
+            text-align: left;
+            margin-top: 10px;
+            font-size: 25px;
+            padding: 25px 20px;
+            color: white;
+        }
+
+        .tg-6 {
+            /* margin-bottom: 50px; */
+            background-color: rgb(45 45 45);
+            color: white;
+            margin-top: 5px;
+            font-size: 25px;
+            padding: 5px 10px;
+        }
+
+        .emtxt {
+            color: white;
+            margin-top: 50px;
+        }
+
+        .hd {
+            color: white;
+            font-weight: 900;
+            font-size: 45px;
+            /* margin-top: 50px; */
+            margin-bottom: 25px;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .t-1 {
+            display: flex;
+        }
+
+        .flex-container {
+            display: flex;
+            align-items: center;
+            /* Centers items vertically */
+        }
+
+
+        /* If you want to add space between the button and the icon */
+        .toggle {
+            margin-right: 10px;
+            /* Adjust as needed */
+        }
+
+        .ftr {
+            background-color: black;
+        }
+
+
+        .main-ft {
+            font-size: 18px;
+            color: white;
+            /* justify-content: space-between; */
+            align-items: center;
+            /* justify-content: space-between; */
+        }
+
+        .main-ft-1 {
+            /* margin-bottom: 20px; */
+            margin-top: 8px;
+            padding: 100px 0;
+        }
+
+        .col-3 {
+            line-height: 5vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bgr">
+        <section class="sec-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col logo">
+                        <img src="../img/pngwing.com (2).png" alt="" class="img-fluid w-50">
+                    </div>
+                    <div class="col header hed">
+                        <div class="dropdown">
+                            <button class="dropbtn">English</button>
+                            <div class="dropdown-content">
+                                <a href="#">English</a>
+                                <a href="#">हिंदी</a>
+                            </div>
+                        </div>
+                        <div class="signin">
+                            <button>
+                                <h6>Sign in</h6>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-1">
+                    <div class="main-one">
+                        <h1>The biggest Indian hits. The best Indian stories.
+                            All streaming here.
+                        </h1>
+                        <h6>Watch anywhere. Cancel anytime.</h6>
+                        <p>Ready to watch? Enter your email to create or restart your membership.</p>
+                        <div class="email">
+                            <!-- <label for="email">Email</label> -->
+                            <input class="em" type="email" name="" id="" value="hpatadiya29@gmail.com"
+                                placeholder="Enter your Email">
+                            <button class="get-s">Get Started ></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec-2">
+            <div class="container">
+                <div class="main-2">
+                    <div class="row">
+                        <div class="col-6">
+                            <h2>Enjoy on your TV</h2>
+                            <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <img class="ig " src="../img/tv.png" alt="">
+                            <div class="vid"> <video autoplay playsinline muted loop>
+                                    <source
+                                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
+                                        type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec-3">
+            <div class="container">
+                <div class="main-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <img class="ig" src="../img/mobile-0819.jpg" alt="">
+                            <div data-uia="nmhp-card-animation-asset-motion" class="default-ltr-cache-xfttou">
+                                <div class="default-ltr-cache-1cn8kex"><img
+                                        data-uia="nmhp-card-animation-asset-animation" alt=""
+                                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png"
+                                        class="default-ltr-cache-1t1z3a4"></div>
+                                <div class="default-ltr-cache-tcf860">
+                                    <div id="" class="default-ltr-cache-162uqtg e15c37ii4" data-uia="">Stranger Things
+                                    </div>
+                                    <div id="" class="default-ltr-cache-44ib4m e15c37ii3" data-uia="">Downloading...
+                                    </div>
+                                </div>
+                                <div data-uia="nmhp-card-animation-asset-custom" aria-hidden="true"
+                                    class="default-ltr-cache-1q4up1i e15c37ii5"></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h2>Download your shows to watch offline</h2>
+                            <p>Save your favourites easily and always have something to watch.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec-4 ">
+            <div class="container">
+                <div class="main-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <h2>Watch everywhere</h2>
+                            <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <img class="ig gi" src="../img/device-pile-in.png" alt="">
+                            <div class="vid-4 ">
+                                <video class="dk" autoplay playsinline muted loop>
+                                    <source
+                                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices-in.m4v"
+                                        type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec-5">
+            <div class="container">
+                <div class="main-5">
+                    <div class="row">
+                        <div class="col-6">
+                            <img class="ig gi"
+                                src="../img/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png"
+                                alt="">
+                        </div>
+                        <div class="col-6">
+                            <h2>Create profiles for kids</h2>
+                            <p>Send children on adventures with their favourite characters in a space made just for
+                                them—free with your membership.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec-6">
+            <div class="container">
+                <h2 class="hd">Frequently Asked Questions</h2>
+                <!-- <div id="icon" class="animate"><i class="fa-solid fa-plus"></i></i></div> -->
+                <div class="tg-1">
+                    <button class="toggle">What is Netflix? </button>
+                </div>
+                <div class="tg" style="display: none;">
+                    <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies,
+                        anime, documentaries and more – on thousands of internet-connected devices.
+                    <div></div>
+                    You can watch as much as you want, whenever you want, without a single ad – all for one low
+                    monthly price. There's always something new to discover, and new TV shows and movies are added
+                    every week!</p>
+                </div>
+                <button class="toggle-2">How much dose Netflix cost?
+                    <!-- <div id="icon" class="animate"><i class="fa-solid fa-plus"></i></div> -->
+                </button>
+                <div class="tg-2" style="display: none;">
+                    <p>Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one
+                        fixed monthly fee. Plans range from ₹149 to ₹649 a month. No extra costs, no contracts.
+                    </p>
+                </div>
+                <button class="toggle-3">Where can I watch?
+                    <!-- <div id="icon" class="animate"><i class="fa-solid fa-plus"></i></div> -->
+                </button>
+                <div class="tg-3" style="display: none;">
+                    <p>Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at
+                        netflix.com from your personal computer or on any internet-connected device that offers the
+                        Netflix app, including smart TVs, smartphones, tablets, streaming media players and game
+                        consoles.
+                    <div></div>
+                    You can also download your favourite shows with the iOS, Android, or Windows 10 app. Use
+                    downloads to watch while you're on the go and without an internet connection. Take Netflix with
+                    you anywhere.</p>
+                </div>
+                <button class="toggle-4">How do i cancel?
+                    <!-- <div id="icon" class="animate"><i class="fa-solid fa-plus"></i></div> -->
+                </button>
+                <div class="tg-4" style="display: none;">
+                    <p>Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel
+                        your account online in two clicks. There are no cancellation fees – start or stop your account
+                        anytime.</p>
+                </div>
+                <button class="toggle-5">What can I Watch Netflix?
+                    <!-- <div id="icon" class="animate"><i class="fa-solid fa-plus"></i></div> -->
+                </button>
+                <div class="tg-5" style="display: none;">
+                    <p>Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning
+                        Netflix originals, and more. Watch as much as you want, anytime you want.</p>
+                </div>
+                <button class="toggle-6">Is Netflix good for kids?
+                    <!-- <div id="icon" class="animate"><i class="fa-solid fa-plus"></i></div> -->
+                </button>
+                <div class="tg-6" style="display: none;">
+                    <p>The Netflix Kids experience is included in your membership to give parents control while kids
+                        enjoy family-friendly TV shows and films in their own space.
+                    <div></div>
+                    Kids profiles come with PIN-protected parental controls that let you restrict the maturity
+                    rating of content kids can watch and block specific titles you don’t want kids to see.</p>
+                </div>
+                <div class="email">
+                    <h4 class="emtxt">Ready to watch? Enter your email to create or restart your membership.</h4>
+                    <!-- <label for="email">Email</label> -->
+                    <input class="em" type="email" name="" id="" value="hpatadiya29@gmail.com"
+                        placeholder="Enter your Email">
+                    <button class="get-s">Get Started ></button>
+                </div>
+            </div>
+        </section>
+        <footer class="ftr">
+            <div class="container">
+                <div class="main-ft-1">
+                    <div class="main-ft row">
+                        <div class="col-3">
+                            Questions? Call 000-800-919-1694 <br>
+                            FAQ<br>
+                            Investor Relations<br>
+                            Privacy<br>
+                            Speed Test<br>
+                            <div class="dropdown">
+                                <button class="dropbtn">English</button>
+                                <div class="dropdown-content">
+                                    <a href="#">English</a>
+                                    <a href="#">हिंदी</a>
+                                </div>
+                            </div><br>
+                            Netflix India
+                        </div>
+                        <div class="col-3">
+                            Help Centre<br>
+                            Jobs<br>
+                            Cookie Preferences<br>
+                            Legal Notices
+                        </div>
+                        <div class="col-3">
+                            Account<br>
+                            Ways to Watch<br>
+                            Corporate Information<br>
+                            Only on Netflix
+                        </div>
+                        <div class="col-3">
+                            Media Centre<br>
+                            Terms of Use<br>
+                            Contact Us
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $(".toggle").click(function () {
+                $(".tg").slideToggle();
+            });
+
+            $(".toggle-2").click(function () {
+                $(".tg-2").slideToggle();
+            });
+            $(".toggle-3").click(function () {
+                $(".tg-3").slideToggle();
+            });
+            $(".toggle-4").click(function () {
+                $(".tg-4").slideToggle();
+            });
+            $(".toggle-5").click(function () {
+                $(".tg-5").slideToggle();
+            });
+            $(".toggle-6").click(function () {
+                $(".tg-6").slideToggle();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#icon").click(function () {
+                $(this).toggleClass("rotate");
+            });
+        });
+
+    </script>
+
+    </script>
+    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
